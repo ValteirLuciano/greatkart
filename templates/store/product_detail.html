@@ -39,8 +39,8 @@
                                     <select name="color" class="form-control">
                                         <option value="" disabled selected>Select</option>
                                         {% for i in single_product.variation_set.colors %}
-                                        <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst
-                                            }}
+                                        <option
+                                                value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}
                                         </option>
                                         {% endfor %}
                                     </select>
@@ -53,8 +53,8 @@
                                     <select name="size" class="form-control">
                                         <option value="" disabled selected>Select</option>
                                         {% for i in single_product.variation_set.sizes %}
-                                        <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst
-                                            }}
+                                        <option
+                                                value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}
                                         </option>
                                         {% endfor %}
                                     </select>
@@ -63,20 +63,12 @@
                             <hr>
 
                             {% if single_product.stock <= 0 %}
-                            <h5 class="text-danger">Out of Stock</h5>
+                                <h5 class="text-danger">Out of Stock</h5>
                             {% else %}
-                            {% if in_cart %}
-                            <a href="#" class="btn  btn-success"> <span class="text">Added to cart</span>
-                                <i class="fas fa-check"></i> </a>
+                                <button type="submit" class="btn  btn-primary"><span class="text">Add to cart</span>
+                                    <i class="fas fa-shopping-cart"></i></button>
+                            {% endif %}
 
-                            <a href="{% url 'cart' %}" class="btn  btn-outline-primary"> <span
-                                    class="text">view cart</span>
-                                <i class="fas fa-eye"></i> </a>
-                            {% else %}
-                            <button type="submit" class="btn  btn-primary"><span class="text">View cart</span>
-                                <i class="fas fa-shopping-cart"></i></button>
-                            {% endif %}
-                            {% endif %}
                         </article> <!-- product-info-aside .// -->
                     </form>
                 </main> <!-- col.// -->
